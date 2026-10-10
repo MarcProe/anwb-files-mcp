@@ -1,0 +1,44 @@
+[project]
+name = "anwb-files-mcp"
+version = "0.1.0"
+description = "MCP-server voor de ANWB filelijst: gestructureerde stau-, werk-, flitser- en afsluitingsinformatie op basis van https://www.anwb.nl/verkeer/filelijst"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Marcus Proest" }]
+keywords = ["mcp", "anwb", "verkeer", "files", "nederland"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "mcp>=1.2.0,<2",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+anwb-files-mcp = "anwb_files_mcp.server:main"
+anwb-files = "anwb_files_mcp.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/anwb_files_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

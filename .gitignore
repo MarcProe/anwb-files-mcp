@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Virtuele omgevingen
+.venv/
+venv/
+env/
+
+# uv
+uv.lock
+
+# Tests / caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / besturingssysteem
+.idea/
+.vscode/
+.DS_Store
+
+# Lokale snapshots / werkbestanden
+*.local.html
+snapshots/
